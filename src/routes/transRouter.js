@@ -7,7 +7,7 @@ const authenticateToken = require('../utils/authenticateToken');
 
 transRouter.post('/:artworkIds', authenticateToken, createTransHandler);
 
-transRouter.get('/', authenticateToken, getTransHandler);
+transRouter.get('/', getTransHandler);
 
 // transRouter.delete('/delete/:userId/:artworkId', deleteFavsHandler);
 

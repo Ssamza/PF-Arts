@@ -17,13 +17,13 @@ const getArtworkHandler = async (req, res) => {
       }
     } else if (authorName) {
       let author = response.filter((works) => {
-        return works.authorName
+        return works.user.userName
           .toLowerCase()
           .includes(authorName.toLowerCase());
       });
 
       if (author.length === 0) {
-        throw Error('Author not available');
+        throw Error('User not available');
       } else {
         res.status(200).json(author);
       }

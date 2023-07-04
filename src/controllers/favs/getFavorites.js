@@ -17,7 +17,6 @@ const getFavs = async (userId) => {
     if (!favorites) {
       throw new Error('No match found');
     }
-    console.log(userId);
 
     return favorites;
   }
