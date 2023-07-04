@@ -21,7 +21,7 @@ server.use(
 );
 // Setting CORS
 server.use((req, res, next) => {
-  //res.header("Access-Control-Allow-Origin", "https://pf-arts-client.vercel.app");
+  //res.header("Access-Control-Allow-Origin", "https:localhost:3001");
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
