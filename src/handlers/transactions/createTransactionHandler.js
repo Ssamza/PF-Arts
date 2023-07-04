@@ -6,12 +6,6 @@ const createTransHandler = async (req, res) => {
   const artworkIds = req.params.artworkIds.split(','); // Recibir los IDs de las obras como un array de cadenas
   const { paypal_id, purchase_value, status } = req.body;
 
-  // console.log('comprador', buyerId);
-  // console.log('obra/s', artworkIds);
-  // console.log('paypal', paypal_id);
-  // console.log('valor', purchase_value);
-  // console.log('status', status);
-
   if (
     !buyerId ||
     !artworkIds ||

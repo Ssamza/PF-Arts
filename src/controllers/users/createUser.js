@@ -15,12 +15,17 @@ const createUser = async (
   verified
 ) => {
   const allUser = await User.findAll();
-  // if (allUser.length > 0) {
-  //   const duplicate = await allUser.some((users) => users.userName.toLowerCase() === userName.toLowerCase());
-  //   if (duplicate) {
-  //     throw Error('Username already exists');
-  //   }
-  // }
+  let role = 'user';
+  if (
+    email === 'santiagoemezeta@gmail.com' ||
+    email === 'jhondanielrojasmontoya@gmail.com' ||
+    email === 'anabellasimonpietri@gmail.com' ||
+    email === 'domirandar@unal.edu.co' ||
+    email === 'axelromeo63@gmail.com' ||
+    email === 'santygalardi@gmail.com'
+  ) {
+    role = 'admin';
+  }
   const duplicateEmail = await allUser.some(
     (users) => users.email.toLowerCase() === email.toLowerCase()
   );
@@ -40,6 +45,7 @@ const createUser = async (
     ig,
     googleUser,
     verified,
+    role,
   });
   return newUser;
 };

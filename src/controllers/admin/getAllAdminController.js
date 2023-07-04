@@ -1,8 +1,6 @@
-const axios = require('axios');
-const URL = 'https://www.wikiart.org/en/api/2/MostViewedPaintings';
 const { Artwork, User } = require('../../db');
 
-const getAllArtwork = async () => {
+const getAllAdmin = async () => {
   const count = await Artwork.count();
   if (count === 0) {
     throw Error('No artworks available');
@@ -12,11 +10,12 @@ const getAllArtwork = async () => {
       model: User,
       attributes: ['userName'],
     },
+    paranoid: false,
   });
 
   return artworks;
 };
 
 module.exports = {
-  getAllArtwork,
+  getAllAdmin,
 };

@@ -47,8 +47,8 @@ const PORT = process.env.PORT || 3001;
 // Syncing all the models at once.
 
 conn
-.sync({ alter: true })
-//.sync({ force: true })
+  .sync({ alter: true })
+  // .sync({ force: true })
 
   .then(() => createPredefinedCategories())
   .then(() => {

@@ -50,7 +50,7 @@ const createTrans = async (
 
     responses[artworkId] = response;
 
-    // await artwork.destroy();
+    await artwork.destroy();
   }
 
   return responses;
