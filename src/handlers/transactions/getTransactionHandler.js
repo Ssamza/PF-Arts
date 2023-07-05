@@ -5,7 +5,7 @@ const getTransHandler = async (req, res) => {
     const { paypal_id } = req.query;
     const response = await getAllTrans();
 
-    if (paypal_id) {
+    if (paypal_id && paypal_id !== 'undefined') {
       let paypal = response.filter((trans) => {
         return trans.paypal_id === paypal_id;
       });
