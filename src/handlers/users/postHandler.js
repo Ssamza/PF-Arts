@@ -44,7 +44,7 @@ const postUsersHandler = async (req, res) => {
       secret,
       { expiresIn: '3h' }
     );
-    const verificationLink = `https://pf-arts-client-4adpqtk37-davidongo93.vercel.app/verify?token=${token}`;
+    const verificationLink = `https://pf-arts-client.vercel.app/verify?token=${token}`;
     const mailOptions = {
       from: 'henryartgallery@hotmail.com',
       to: email,
