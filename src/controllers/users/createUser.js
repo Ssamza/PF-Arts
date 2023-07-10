@@ -32,6 +32,13 @@ const createUser = async (
   if (duplicateEmail) {
     throw Error('An account with this email already exists');
   }
+  const duplicateUser = await allUser.some(
+    (users) => users.userName.toLowerCase() === userName.toLowerCase()
+  );
+  if (duplicateUser) {
+    throw Error('An account with this username already exists');
+  }
+  
   const newUser = await User.create({
     userName,
     profilePicture,
