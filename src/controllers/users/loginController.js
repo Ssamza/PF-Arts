@@ -6,21 +6,17 @@ const SECRET_KEY = process.env.JWT_SECRET;
 const validateUser = async (userName, password) => {
   return new Promise((resolve, reject) => {
     console.log(userName, password);
-    User.findOne({ where: { userName } })
+    User.findOne({ where: { userName, password } })
       .then((user) => {
         if (user) {
-          if (user.password === password) {
-            if (user.verified) {
-              const token = jwt.sign({ userId: user.userId }, SECRET_KEY);
-              resolve(token);
-            } else {
-              reject(new Error('User is not verified'));
-            }
+          if (user.verified) {
+            const token = jwt.sign({ userId: user.userId }, SECRET_KEY);
+            resolve(token);
           } else {
-            reject(new Error('Invalid credentials'));
+            reject(new Error('User is not verified'));
           }
         } else {
-          reject(new Error('Invalid credentials'));
+          reject(new Error('Invalid user credentials'));
         }
       })
       .catch((error) => {
