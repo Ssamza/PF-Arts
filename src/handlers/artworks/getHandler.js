@@ -11,7 +11,7 @@ const getArtworkHandler = async (req, res) => {
       });
 
       if (artworkName.length === 0) {
-        throw Error('Artwork not available');
+        return []	;
       } else {
         res.status(200).json(artworkName);
       }
@@ -23,7 +23,7 @@ const getArtworkHandler = async (req, res) => {
       });
 
       if (author.length === 0) {
-        throw Error('User not available');
+        return [];
       } else {
         res.status(200).json(author);
       }
